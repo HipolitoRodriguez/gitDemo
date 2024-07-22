@@ -1,0 +1,1248 @@
+sopsna@qimsgou2> ssh root@10.32.182.200
+root@10.32.182.200's password: 
+Last login: Sat Jul 13 20:32:42 2024 from 10.94.184.208
+[root@ADPTCTGVMSC1 ~]# component check_health 
+========================================
+The following servers are defined:
+Server=AdminServer, machine=, state=RUNNING, health_state=OK
+Server=oam-1, machine=node-1, state=RUNNING, health_state=OK
+Server=oam-2, machine=node-2, state=RUNNING, health_state=OK
+Server=traffic-1, machine=node-3, state=RUNNING, health_state=OK
+Server=traffic-2, machine=node-4, state=RUNNING, health_state=OK
+Server=traffic-data-1, machine=node-3, state=RUNNING, health_state=OK
+Server=traffic-data-2, machine=node-4, state=RUNNING, health_state=OK
+========================================
+The following applications are deployed:
+Application=oam-caf-ra, target=oam, state=STATE_ACTIVE, version=1.0.54
+Application=oam-caf-ra, target=traffic, state=STATE_ACTIVE, version=1.0.54
+Application=lmf-rar, target=oam, state=STATE_ACTIVE, version=1.0.54
+Application=lmf-rar, target=traffic, state=STATE_ACTIVE, version=1.0.54
+Application=ece-log-agent, target=oam, state=STATE_ACTIVE, version=1.0.7
+Application=ece-log-agent, target=traffic, state=STATE_ACTIVE, version=1.0.7
+Application=SessionRA, target=traffic, state=STATE_ACTIVE, version=2.0.5
+Application=generator, target=traffic, state=STATE_ACTIVE, version=3.0.2
+Application=Foundation, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=FoundationAdmin, target=oam, state=STATE_ACTIVE, version=2.0.2
+Application=RepositoryEditorProductionEar, target=oam, state=STATE_ACTIVE, version=4.0.2
+Application=SS7SelectorTraffic, target=traffic, state=STATE_ACTIVE, version=1.1.27
+Application=SS7SelectorWS, target=oam, state=STATE_ACTIVE, version=1.1.27
+Application=ss7-correlation-service, target=traffic, state=STATE_ACTIVE, version=1.0.29
+Application=ss7-capv2-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.15
+Application=ss7-capv4-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.12
+Application=ss7-cs1plus-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.15
+Application=ss7-map-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.20
+Application=ss7-mapv1-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.14
+Application=ss7-acar-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.0.5
+Application=ss7-capv1-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.0.2
+Application=jms-notran-adp, target=oam, state=STATE_ACTIVE, version=not_determined
+Application=jms-notran-adp, target=traffic, state=STATE_ACTIVE, version=not_determined
+Application=cdr-sequencer-app, target=oam, state=STATE_ACTIVE, version=3.0.3
+Application=cdr-ear-app, target=traffic, state=STATE_ACTIVE, version=3.0.3
+Application=CommonServiceEar, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=MsaEar, target=traffic, state=STATE_ACTIVE, version=4.0.2
+Application=ws-in-disco-ra, target=traffic, state=STATE_ACTIVE, version=1.1.14
+Application=AcSipEar, target=traffic, state=STATE_ACTIVE, version=4.0.2
+Application=AcCoreSS7Ear, target=traffic, state=STATE_ACTIVE, version=3.1.18
+Application=tcap-ra, target=traffic, state=STATE_ACTIVE, version=1.3.33
+Application=SendATI, target=traffic, state=STATE_ACTIVE, version=1.0.27
+Application=XcapInterface, target=traffic, state=STATE_ACTIVE, version=1.0.9
+Application=diameter-ra, target=traffic, state=STATE_ACTIVE, version=1.1.27
+Application=messaging-connectivity-bridge-war, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=messaging-discovery-ra, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=Messaging, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=TELMEX_IMS_ADAPTOR, target=traffic, state=STATE_ACTIVE, version=0.2.27
+Application=TELMEX_IMS_ADAPTOR_GUI, target=oam, state=STATE_ACTIVE, version=0.0.12
+Total: 35
+========================================
+Success.
+    See /opt/ericsson/components/clm-check_health-ADPTCTGVMSC1.log for debug information
+[root@ADPTCTGVMSC1 ~]# mysql-cluster-status 
+MySQL Cluster Status
+--------------------
+[ndbd(NDB)]     2 node(s)
+  ndbd-1-1@ADPTCTGVMPL1    started
+  ndbd-1-2@ADPTCTGVMPL2    started
+[ndb_mgmd(MGM)] 2 node(s)
+  mgmd-1@ADPTCTGVMSC1    started
+  mgmd-2@ADPTCTGVMSC2    started
+[mysqld(API)]   2 node(s)
+  mysqld-1@ADPTCTGVMPL1    started
+  mysqld-2@ADPTCTGVMPL2    started
+[root@ADPTCTGVMSC1 ~]# printActiveAlarms
+Active alarms:
+!---------------------------------------------------------------
+Module             : Consul
+Error Code         : 680101
+Resource Id        : 1.1.1.68.1.192.168.0.4
+Timestamp First    : Sat Jul 06 16:28:12 GMT-06:00 2024
+Repeated Counter   : 1
+Timestamp Last     : Sat Jul 06 16:28:12 GMT-06:00 2024
+Model Description  : Consul agent is inactive or unreachable.
+Active Description : Node 192.168.0.4 alarm: Consul agent is inactive or unreachable.
+Event Type         : 5
+Probable Cause     : 1024
+Severity           : critical
+Orig Source IP     : 192.168.0.4
+Sequence Number    : 916038
+---------------------------------------------------------------!
+!---------------------------------------------------------------
+Module             : SystemResources
+Error Code         : 990202
+Resource Id        : 1.1.1.99.2.10.32.182.201
+Timestamp First    : Mon Jul 15 09:56:08 GMT-06:00 2024
+Repeated Counter   : 2
+Timestamp Last     : Mon Jul 15 09:56:08 GMT-06:00 2024
+Model Description  : SystemResources:Disk usage too high, minor
+Active Description : Disk Usage Minor, Blade 10.32.182.201 86% of storage volume "/var/log" is in use
+Event Type         : 3
+Probable Cause     : 547
+Severity           : minor
+Orig Source IP     : 10.32.182.201
+Sequence Number    : 918591
+---------------------------------------------------------------!
+!---------------------------------------------------------------
+Module             : egi
+Error Code         : 299253
+Resource Id        : 1.1.1.34823
+Timestamp First    : Tue Jul 16 12:15:46 GMT-06:00 2024
+Repeated Counter   : 1
+Timestamp Last     : Tue Jul 16 12:15:46 GMT-06:00 2024
+Model Description  : Redirect Server quarantine with error message: {0} : 1.1.1.34823
+Active Description : 
+Event Type         : 6
+Probable Cause     : 1
+Severity           : critical
+Orig Source IP     : 10.32.182.202
+Sequence Number    : 920217
+---------------------------------------------------------------!
+!---------------------------------------------------------------
+Module             : internal-lb
+Error Code         : 400201
+Resource Id        : 1.1.1.90.1.10.32.182.213.3.83.76.66
+Timestamp First    : Mon Jul 08 13:07:57 GMT-06:00 2024
+Repeated Counter   : 11629
+Timestamp Last     : Tue Jul 16 14:55:56 GMT-06:00 2024
+Model Description  : Health check failed for HAProxy of the Internal Load Balancer HAProxy. The HAProxy was either restarted or shutdown
+Active Description : The HAProxy of the Internal Load Balancer SLB was terminated on blade 10.32.182.213.
+Event Type         : 4
+Probable Cause     : 1024
+Severity           : minor
+Orig Source IP     : 10.32.182.213
+Sequence Number    : 916059
+---------------------------------------------------------------!
+[root@ADPTCTGVMSC1 ~]# /etc/init.d/nodeManager status  
+2024-07-16 14:34:04,990 [INFO] Node manager (pid 15511) is running
+2024-07-16 14:34:06,271 [INFO] Checking managed server (pid 27060) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'oam-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'oam-1' : RUNNING
+                                                           [  OK  ]
+[root@ADPTCTGVMSC1 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmsc1-lv_root
+                       13G  8.2G  4.1G  67% /
+tmpfs                  12G     0   12G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmsc1-lv_cdr
+                      2.0G  3.1M  1.9G   1% /data/localcdr
+/dev/mapper/vg_adptctgvmsc1-lv_tmp
+                      2.0G   68M  1.8G   4% /tmp
+/dev/mapper/vg_adptctgvmsc1-lv_data
+                      2.1G  3.3M  2.0G   1% /var/lib/centrallogging/data
+/dev/mapper/vg_adptctgvmsc1-lv_graphite
+                      9.8G   23M  9.2G   1% /var/lib/graphite/storage
+/dev/mapper/vg_adptctgvmsc1-lv_log
+                      2.0G  405M  1.5G  22% /var/log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+/dev/mapper/cluster_vg-data_lv
+                       23G  1.1G   21G   5% /.cluster
+[root@ADPTCTGVMSC1 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         23460      19096       4363          0        630       3314
+-/+ buffers/cache:      15151       8309 
+Swap:         7999         20       7979 
+[root@ADPTCTGVMSC1 ~]# top 
+
+top - 14:34:41 up 2100 days, 58 min,  1 user,  load average: 1.84, 1.43, 0.84
+Tasks: 364 total,   1 running, 363 sleeping,   0 stopped,   0 zombie
+Cpu(s):  7.6%us,  4.6%sy,  2.9%ni, 83.0%id,  0.0%wa,  0.6%hi,  0.8%si,  0.5%st
+Mem:  24023668k total, 19564364k used,  4459304k free,   645800k buffers
+Swap:  8191996k total,    20900k used,  8171096k free,  3401936k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                 
+22200 occas     20   0 7573m 925m 4316 S 84.1  3.9  11802:54 java                                                                                    
+ 2247 root      20   0 66604  28m  15m S  3.0  0.1 120752:58 consul                                                                                  
+ 8708 root      29   9 5649m 178m  11m S  3.0  0.8   1544:23 java                                                                                    
+20679 root      20   0     0    0    0 S  2.3  0.0  61:41.26 nfsd                                                                                    
+20677 root      20   0     0    0    0 S  2.0  0.0  61:36.85 nfsd                                                                                    
+17010 root      20   0 21428  13m 4676 S  1.6  0.1   2835:44 consul-template                                                                         
+22334 root      20   0 3241m 159m  11m S  1.6  0.7 265:24.14 java                                                                                    
+ 7108 mysql     20   0 2108m  20m 1396 S  1.3  0.1  49628:04 ndb_mgmd                                                                                
+ 8041 root      29   9 5604m 188m  11m S  1.3  0.8   2676:15 java                                                                                    
+20678 root      20   0     0    0    0 S  1.3  0.0  61:05.62 nfsd                                                                                    
+27060 occas     20   0 7824m 1.5g 4192 S  1.3  6.3  75804:13 java                                                                                    
+  817 root      20   0 15264 1492  948 R  1.0  0.0   0:00.58 top                                                                                     
+ 2501 root      20   0 9064m 832m  10m S  0.7  3.5   9042:19 java                                                                                    
+ 6867 redis     20   0  134m 9688 1136 S  0.7  0.0  18899:44 redis-sentinel                                                                          
+15511 occas     20   0 3253m 180m 3944 S  0.7  0.8  29640:45 java                                                                                    
+20566 root      20   0     0    0    0 S  0.7  0.0   3:47.81 flush-253:8                                                                             
+   21 root      20   0     0    0    0 S  0.3  0.0 300:35.62 ksoftirqd/4                                                                             
+[root@ADPTCTGVMSC1 ~]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 431558
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               10 | 172.29.45.51     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               15 | 172.29.98.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|              529 | 172.29.98.60     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               12 | 172.29.45.53     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               14 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               11 | 172.29.45.56     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              523 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|                1 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              524 | 172.29.98.53     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               13 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              528 | 172.29.98.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              525 | 172.29.45.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.01 sec)
+
+mysql> exit
+Bye
+[root@ADPTCTGVMSC1 ~]# 
+[root@ADPTCTGVMSC1 ~]# 
+[root@ADPTCTGVMSC1 ~]# 
+[root@ADPTCTGVMSC1 ~]# ssh node-2
+root@node-2's password: 
+Last login: Mon Jul  8 12:52:36 2024 from node-1.node.dc1.consul
+[root@ADPTCTGVMSC2 ~]# /etc/init.d/nodeManager status  
+2024-07-16 14:59:30,059 [INFO] Node manager (pid 7839) is running
+2024-07-16 14:59:30,826 [INFO] Checking managed server (pid 7744) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'oam-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'oam-2' : RUNNING
+                                                           [  OK  ]
+[root@ADPTCTGVMSC2 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmsc2-lv_root
+                       13G  8.6G  3.7G  71% /
+tmpfs                  12G  1.8G  9.7G  16% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmsc2-lv_cdr
+                      2.0G  3.1M  1.9G   1% /data/localcdr
+/dev/mapper/vg_adptctgvmsc2-lv_tmp
+                      2.0G   29M  1.8G   2% /tmp
+/dev/mapper/vg_adptctgvmsc2-lv_data
+                      2.1G  3.3M  2.0G   1% /var/lib/centrallogging/data
+/dev/mapper/vg_adptctgvmsc2-lv_graphite
+                      9.8G   23M  9.2G   1% /var/lib/graphite/storage
+/dev/mapper/vg_adptctgvmsc2-lv_log
+                      2.0G  1.7G  162M  92% /var/log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+[root@ADPTCTGVMSC2 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         23460      14811       8649       1838        414       6050
+-/+ buffers/cache:       8345      15114 
+Swap:         7999        552       7447 
+[root@ADPTCTGVMSC2 ~]# top 
+
+top - 14:59:47 up 2100 days,  1:32,  1 user,  load average: 1.35, 1.89, 1.44
+Tasks: 323 total,   1 running, 322 sleeping,   0 stopped,   0 zombie
+Cpu(s):  0.8%us,  2.1%sy,  0.2%ni, 96.5%id,  0.0%wa,  0.1%hi,  0.1%si,  0.2%st
+Mem:  24023668k total, 15165800k used,  8857868k free,   424792k buffers
+Swap:  8191996k total,   566196k used,  7625800k free,  6195944k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                 
+ 2252 root      20   0 67664  32m  15m S  4.3  0.1  64159:13 consul                                                                                  
+ 6162 mysql     20   0  826m   9m 1400 S  2.0  0.0  48794:43 ndb_mgmd                                                                                
+ 7744 occas     20   0 7850m 1.4g 3516 S  1.7  6.2  81016:01 java                                                                                    
+ 7839 occas     20   0 3253m 179m 3212 S  1.3  0.8  29290:21 java                                                                                    
+31705 root      29   9 5607m 193m 6120 S  1.3  0.8  38587:14 java                                                                                    
+ 3026 root      20   0  5200 1820  864 S  1.0  0.0  12180:38 lserv                                                                                   
+ 8488 root      20   0 21684  12m 3416 S  0.7  0.1   6719:16 consul-template                                                                         
+21987 root      20   0 15160 1460  948 R  0.7  0.0   0:00.26 top                                                                                     
+32116 root      29   9  861m  10m 1892 S  0.7  0.0  30320:31 ssmagent.bin                                                                            
+   49 root      20   0     0    0    0 S  0.3  0.0   2196:54 events/6                                                                                
+ 2789 root      20   0 41608  932  796 S  0.3  0.0 670:00.43 keepalived                                                                              
+ 2924 root      20   0  106m 1912 1252 S  0.3  0.0   9891:18 licenseserver-w                                                                         
+ 2937 root      20   0 9193m 364m 5632 S  0.3  1.6   9223:33 java                                                                                    
+ 5918 redis     20   0  134m 5220 1132 S  0.3  0.0  19594:35 redis-sentinel                                                                          
+ 6751 redis     20   0  103m 1536 1208 S  0.3  0.0 353:44.71 sentinel_wrappe                                                                         
+    1 root      20   0 19232 1072  860 S  0.0  0.0  88:39.28 init                                                                                    
+    2 root      20   0     0    0    0 S  0.0  0.0  56:46.86 kthreadd                                                                                
+[root@ADPTCTGVMSC2 ~]# 
+[root@ADPTCTGVMSC2 ~]# 
+[root@ADPTCTGVMSC2 ~]# cd /var/log
+[root@ADPTCTGVMSC2 log]# du -hs *
+752K	3smdebug.log
+11M	3smdebug.log.1
+1.7M	3sm.log
+2.1M	3sm.log.prev
+4.0K	anaconda.ifcfg.log
+36K	anaconda.log
+56K	anaconda.program.log
+292K	anaconda.storage.log
+52K	anaconda.syslog
+32K	anaconda.xlog
+32K	anaconda.yum.log
+30M	audit
+4.0K	blade_reboot_status
+8.0K	boot.log
+0	btmp
+0	btmp-20240701
+16K	centrallogging
+36M	consul
+34M	consul-template
+1.5M	cron
+4.2M	cron-20240623
+4.2M	cron-20240630
+3.9M	cron-20240707
+3.4M	cron-20240714
+4.0K	cups
+32K	dmesg
+32K	dmesg.old
+40K	dp-common
+8.0K	dp-fm-server
+172K	dracut.log
+5.6M	esa
+8.0K	graphite
+0	haproxy.log
+4.0K	haproxy.log-20231102.gz
+4.0K	haproxy.log-20240415.gz
+4.0K	haproxy.log-20240622.gz
+4.0K	haproxy.log-20240714
+20M	internal-lb
+48K	lastlog
+4.0K	license-server.log
+8.0K	licensing
+4.0K	logrotate.status.jeeapp
+40K	logrotate.status.occas
+4.0K	logrotate.status.rda-base
+4.0K	logservice
+4.0K	logstash
+16K	lost+found
+8.0K	mail
+240M	maillog
+0	maillog-20240623
+0	maillog-20240630
+503M	maillog-20240707
+545M	maillog-20240714
+4.1M	messages
+11M	messages-20240623
+11M	messages-20240630
+9.7M	messages-20240707
+9.3M	messages-20240714
+4.0K	node_status
+4.0K	ntpstats
+232K	occas
+98M	rda
+572K	rda-esa-config
+632K	rda-heartbeat
+12K	rda-nfs-client
+8.0K	rda-ss7-config
+12K	rda-storage-config
+100M	redis
+112K	rhsm
+8.0K	samba
+28K	secure
+72K	secure-20240623
+68K	secure-20240630
+64K	secure-20240707
+64K	secure-20240714
+8.0K	shared-storage.log
+0	spooler
+0	spooler-20240623
+0	spooler-20240630
+0	spooler-20240707
+0	spooler-20240714
+60K	ssmagent.log
+984K	ssmagent.log.1
+0	tallylog
+20K	tcap_monitor.log
+28K	tuned
+484K	wtmp
+0	yum.log
+28K	yum.log-20190101
+[root@ADPTCTGVMSC2 log]# du -hs * | sort -rh | head -n 10
+545M	maillog-20240714
+503M	maillog-20240707
+240M	maillog
+100M	redis
+98M	rda
+36M	consul
+34M	consul-template
+30M	audit
+20M	internal-lb
+11M	messages-20240630
+[root@ADPTCTGVMSC2 log]# cp /dev/null maillog-20240714
+cp: overwrite `maillog-20240714'? y
+[root@ADPTCTGVMSC2 log]# du -hs * | sort -rh | head -n 10
+503M	maillog-20240707
+240M	maillog
+100M	redis
+98M	rda
+36M	consul
+34M	consul-template
+30M	audit
+20M	internal-lb
+11M	messages-20240630
+11M	messages-20240623
+[root@ADPTCTGVMSC2 log]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmsc2-lv_root
+                       13G  8.6G  3.7G  71% /
+tmpfs                  12G  1.8G  9.7G  16% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmsc2-lv_cdr
+                      2.0G  3.1M  1.9G   1% /data/localcdr
+/dev/mapper/vg_adptctgvmsc2-lv_tmp
+                      2.0G   29M  1.8G   2% /tmp
+/dev/mapper/vg_adptctgvmsc2-lv_data
+                      2.1G  3.3M  2.0G   1% /var/lib/centrallogging/data
+/dev/mapper/vg_adptctgvmsc2-lv_graphite
+                      9.8G   23M  9.2G   1% /var/lib/graphite/storage
+/dev/mapper/vg_adptctgvmsc2-lv_log
+                      2.0G  1.2G  706M  62% /var/log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+[root@ADPTCTGVMSC2 log]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 431681
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               10 | 172.29.45.51     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               15 | 172.29.98.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|              529 | 172.29.98.60     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               12 | 172.29.45.53     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               14 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               11 | 172.29.45.56     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              523 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|                1 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              524 | 172.29.98.53     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               13 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              528 | 172.29.98.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              525 | 172.29.45.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> exit;
+Bye
+[root@ADPTCTGVMSC2 log]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 52:54:00:6A:50:BA  
+          inet addr:10.32.182.201  Bcast:10.32.182.255  Mask:255.255.255.192
+          inet6 addr: fe80::5054:ff:fe6a:50ba/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:843543792 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:365796832 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:233231607687 (217.2 GiB)  TX bytes:78836095054 (73.4 GiB)
+
+eth1      Link encap:Ethernet  HWaddr 52:54:00:31:C5:11  
+          inet addr:192.168.0.2  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::5054:ff:fe31:c511/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:47319927650 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:35345620744 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:27977770996198 (25.4 TiB)  TX bytes:5283009064363 (4.8 TiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:4802822748 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4802822748 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:672810261038 (626.6 GiB)  TX bytes:672810261038 (626.6 GiB)
+
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# 
+[root@ADPTCTGVMSC2 log]# ssh node-3
+root@node-3's password: 
+Last login: Mon Jul  8 13:11:53 2024 from node-1.node.dc1.consul
+[root@ADPTCTGVMPL1 ~]# /etc/init.d/nodeManager status  
+2024-07-16 15:03:44,646 [INFO] Node manager (pid 11318) is running
+2024-07-16 15:03:45,415 [INFO] Checking managed server (pid 11625) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-1' : RUNNING
+2024-07-16 15:03:52,348 [INFO] Checking managed server (pid 11603) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-data-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-data-1' : RUNNING
+                                                           [  OK  ]
+[root@ADPTCTGVMPL1 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmpl1-lv_root
+                       20G   13G  5.7G  69% /
+tmpfs                  21G     0   21G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmpl1-lv_mysql
+                       77G   41G   33G  56% /data/mysqlcluster
+/dev/mapper/vg_adptctgvmpl1-lv_tmp
+                      2.0G   27M  1.8G   2% /tmp
+/dev/mapper/vg_adptctgvmpl1-lv_log
+                      2.0G  1.2G  646M  66% /var/log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+[root@ADPTCTGVMPL1 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         41210      29561      11649          0        427       7218
+-/+ buffers/cache:      21914      19296 
+Swap:         8191          0       8191 
+[root@ADPTCTGVMPL1 ~]# top 
+
+top - 15:04:02 up 9 days, 22:26,  1 user,  load average: 0.40, 0.38, 0.36
+Tasks: 440 total,   1 running, 439 sleeping,   0 stopped,   0 zombie
+Cpu(s):  4.4%us,  3.2%sy,  2.1%ni, 89.5%id,  0.0%wa,  0.2%hi,  0.2%si,  0.4%st
+Mem:  42199880k total, 30265404k used, 11934476k free,   438200k buffers
+Swap:  8388604k total,        0k used,  8388604k free,  7391920k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                 
+11603 occas     20   0 8725m 1.1g 6396 S 64.4  2.8   9542:36 java                                                                                    
+ 5308 mysql     20   0 15.7g  13g 3928 S  8.3 33.2   1161:34 ndbmtd                                                                                  
+11625 occas     20   0 12.7g 3.1g 5612 S  4.6  7.7   1069:03 java                                                                                    
+11014 mysql     20   0 2603m 109m 7080 S  3.3  0.3 387:14.66 mysqld                                                                                  
+ 3258 root      29   9 8743m 179m  11m S  2.6  0.4  75:39.57 java                                                                                    
+ 2373 root      20   0 66060  32m  17m S  2.0  0.1 330:29.42 consul                                                                                  
+ 3445 root      29   9  797m  12m 5096 S  1.7  0.0  79:58.16 ssmagent.bin                                                                            
+10677 root      20   0 15296 1568  948 R  1.7  0.0   0:00.16 top                                                                                     
+17318 elastics  20   0 12.4g 1.1g  12m S  1.3  2.7 154:28.13 java                                                                                    
+ 2445 root      20   0 22708  13m 4684 S  1.0  0.0 284:06.46 consul-template                                                                         
+ 4063 redis     20   0  134m 7836 1380 S  0.7  0.0  66:11.26 redis-sentinel                                                                          
+ 4414 redis     RT   0  146m 7588 1156 S  0.7  0.0  46:40.96 redis-server                                                                            
+ 4428 redis     20   0  134m 7356 1088 S  0.7  0.0  36:49.88 redis-server                                                                            
+11318 occas     20   0 3574m 176m 4040 S  0.7  0.4 163:49.60 java                                                                                    
+17302 root      20   0  106m 1984 1256 S  0.7  0.0  43:05.27 elasticsearch                                                                           
+    7 root      RT   0     0    0    0 S  0.3  0.0   1:15.08 migration/1                                                                             
+   13 root      20   0     0    0    0 S  0.3  0.0   1:05.25 ksoftirqd/2                                                                             
+[root@ADPTCTGVMPL1 ~]# 
+[root@ADPTCTGVMPL1 ~]# 
+[root@ADPTCTGVMPL1 ~]# 
+[root@ADPTCTGVMPL1 ~]# cd /var/log
+[root@ADPTCTGVMPL1 log]# du -hs * | sort -rh | head -n 10
+886M	graphite
+102M	redis
+77M	consul
+31M	consul-template
+28M	audit
+11M	messages-20240714
+11M	messages-20240707
+11M	messages-20240630
+11M	messages-20240623
+4.9M	CTG-PL1-messages.txt
+[root@ADPTCTGVMPL1 log]# cd graphite/
+[root@ADPTCTGVMPL1 graphite]# du -hs * | sort -rh | head -n 10
+655M	carbon-relay-a
+231M	carbon-cache-a
+220K	carbon-aggregator-b
+220K	carbon-aggregator-a
+36K	gunicorn
+16K	webapp
+12K	graphite_config.log
+4.0K	graphite_client.log
+[root@ADPTCTGVMPL1 graphite]# cd carbon-relay-a/
+[root@ADPTCTGVMPL1 carbon-relay-a]# du -hs * | sort -rh | head -n 10
+1.5M	listener.log.2024_7_9
+1.5M	listener.log.2024_7_8
+1.5M	listener.log.2024_7_7
+1.5M	listener.log.2024_7_6
+1.5M	listener.log.2024_7_5
+1.5M	listener.log.2024_7_4
+1.5M	listener.log.2024_7_3
+1.5M	listener.log.2024_7_2
+1.5M	listener.log.2024_7_15
+1.5M	listener.log.2024_7_14
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | head -10
+total 655M
+-rwxr-xr-x. 1 graphite graphite 1.6K Dec 29  2022 console.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5K Dec 29  2022 clients.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 750K Dec 29  2022 listener.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5M Dec 30  2022 listener.log.2022_12_30
+-rwxr-xr-x. 1 graphite graphite 1.5M Dec 31  2022 listener.log.2022_12_31
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  1  2023 listener.log.2023_2_1
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  2  2023 listener.log.2023_2_2
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  3  2023 listener.log.2023_2_3
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  4  2023 listener.log.2023_2_4
+[root@ADPTCTGVMPL1 carbon-relay-a]# more console.log.2022_12_29 
+29/12/2022 12:05:06 :: Log opened.
+29/12/2022 12:05:06 :: twistd 8.2.0 (/opt/graphite/python2.7/bin/python2.7 2.7.10) starting up.
+29/12/2022 12:05:06 :: reactor class: twisted.internet.epollreactor.EPollReactor.
+29/12/2022 12:05:06 :: twisted.internet.protocol.ServerFactory starting on 2003
+29/12/2022 12:05:06 :: Starting factory <twisted.internet.protocol.ServerFactory instance at 0x7f6d5d394fc8>
+29/12/2022 12:05:06 :: twisted.internet.protocol.ServerFactory starting on 2004
+29/12/2022 12:05:06 :: Starting factory <twisted.internet.protocol.ServerFactory instance at 0x7f6d5d62acf8>
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-4:2024:a)
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-4:2014:None)
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-3:2014:None)
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-3:2024:a)
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-3:2124:b)
+29/12/2022 12:05:06 :: Starting factory CarbonClientFactory(node-4:2124:b)
+29/12/2022 12:05:06 :: <twisted.internet.tcp.Connector instance at 0x7f6d5d656ab8> will retry in 2 seconds
+29/12/2022 12:05:06 :: Stopping factory CarbonClientFactory(node-3:2124:b)
+29/12/2022 12:05:06 :: <twisted.internet.tcp.Connector instance at 0x7f6d5d6567a0> will retry in 1 seconds
+29/12/2022 12:05:06 :: Stopping factory CarbonClientFactory(node-3:2024:a)
+29/12/2022 12:05:07 :: Starting factory CarbonClientFactory(node-3:2024:a)
+29/12/2022 12:05:08 :: Starting factory CarbonClientFactory(node-3:2124:b)
+[root@ADPTCTGVMPL1 carbon-relay-a]# more listener.log.2023_2_4
+04/02/2023 00:00:09 :: MetricLineReceiver connection with 192.168.0.3:54344 established
+04/02/2023 00:00:09 :: MetricLineReceiver connection with 192.168.0.3:54344 closed cleanly
+04/02/2023 00:00:19 :: MetricLineReceiver connection with 192.168.0.3:54369 established
+04/02/2023 00:00:19 :: MetricLineReceiver connection with 192.168.0.3:54369 closed cleanly
+04/02/2023 00:00:29 :: MetricLineReceiver connection with 192.168.0.3:54384 established
+04/02/2023 00:00:29 :: MetricLineReceiver connection with 192.168.0.3:54384 closed cleanly
+04/02/2023 00:00:39 :: MetricLineReceiver connection with 192.168.0.3:54410 established
+04/02/2023 00:00:39 :: MetricLineReceiver connection with 192.168.0.3:54410 closed cleanly
+04/02/2023 00:00:49 :: MetricLineReceiver connection with 192.168.0.3:54435 established
+04/02/2023 00:00:49 :: MetricLineReceiver connection with 192.168.0.3:54435 closed cleanly
+04/02/2023 00:00:59 :: MetricLineReceiver connection with 192.168.0.3:54456 established
+04/02/2023 00:00:59 :: MetricLineReceiver connection with 192.168.0.3:54456 closed cleanly
+04/02/2023 00:01:09 :: MetricLineReceiver connection with 192.168.0.3:54479 established
+04/02/2023 00:01:09 :: MetricLineReceiver connection with 192.168.0.3:54479 closed cleanly
+04/02/2023 00:01:19 :: MetricLineReceiver connection with 192.168.0.3:54504 established
+04/02/2023 00:01:19 :: MetricLineReceiver connection with 192.168.0.3:54504 closed cleanly
+04/02/2023 00:01:29 :: MetricLineReceiver connection with 192.168.0.3:54524 established
+04/02/2023 00:01:29 :: MetricLineReceiver connection with 192.168.0.3:54524 closed cleanly
+04/02/2023 00:01:39 :: MetricLineReceiver connection with 192.168.0.3:54549 established
+04/02/2023 00:01:39 :: MetricLineReceiver connection with 192.168.0.3:54549 closed cleanly
+04/02/2023 00:01:49 :: MetricLineReceiver connection with 192.168.0.3:54574 established
+04/02/2023 00:01:49 :: MetricLineReceiver connection with 192.168.0.3:54574 closed cleanly
+04/02/2023 00:01:59 :: MetricLineReceiver connection with 192.168.0.3:54589 established
+04/02/2023 00:01:59 :: MetricLineReceiver connection with 192.168.0.3:54589 closed cleanly
+04/02/2023 00:02:09 :: MetricLineReceiver connection with 192.168.0.3:54612 established
+04/02/2023 00:02:09 :: MetricLineReceiver connection with 192.168.0.3:54612 closed cleanly
+04/02/2023 00:02:19 :: MetricLineReceiver connection with 192.168.0.3:54637 established
+04/02/2023 00:02:19 :: MetricLineReceiver connection with 192.168.0.3:54637 closed cleanly
+04/02/2023 00:02:29 :: MetricLineReceiver connection with 192.168.0.3:54658 established
+04/02/2023 00:02:29 :: MetricLineReceiver connection with 192.168.0.3:54658 closed cleanly
+04/02/2023 00:02:39 :: MetricLineReceiver connection with 192.168.0.3:54684 established
+04/02/2023 00:02:39 :: MetricLineReceiver connection with 192.168.0.3:54684 closed cleanly
+04/02/2023 00:02:49 :: MetricLineReceiver connection with 192.168.0.3:54716 established
+04/02/2023 00:02:49 :: MetricLineReceiver connection with 192.168.0.3:54716 closed cleanly
+04/02/2023 00:02:59 :: MetricLineReceiver connection with 192.168.0.3:54737 established
+04/02/2023 00:02:59 :: MetricLineReceiver connection with 192.168.0.3:54737 closed cleanly
+04/02/2023 00:03:09 :: MetricLineReceiver connection with 192.168.0.3:54759 established
+04/02/2023 00:03:09 :: MetricLineReceiver connection with 192.168.0.3:54759 closed cleanly
+04/02/2023 00:03:19 :: MetricLineReceiver connection with 192.168.0.3:54784 established
+04/02/2023 00:03:19 :: MetricLineReceiver connection with 192.168.0.3:54784 closed cleanly
+04/02/2023 00:03:29 :: MetricLineReceiver connection with 192.168.0.3:54798 established
+04/02/2023 00:03:29 :: MetricLineReceiver connection with 192.168.0.3:54798 closed cleanly
+04/02/2023 00:03:39 :: MetricLineReceiver connection with 192.168.0.3:54822 established
+04/02/2023 00:03:39 :: MetricLineReceiver connection with 192.168.0.3:54822 closed cleanly
+04/02/2023 00:03:49 :: MetricLineReceiver connection with 192.168.0.3:54847 established
+04/02/2023 00:03:49 :: MetricLineReceiver connection with 192.168.0.3:54847 closed cleanly
+04/02/2023 00:03:59 :: MetricLineReceiver connection with 192.168.0.3:54869 established
+04/02/2023 00:03:59 :: MetricLineReceiver connection with 192.168.0.3:54869 closed cleanly
+04/02/2023 00:04:09 :: MetricLineReceiver connection with 192.168.0.3:54892 established
+04/02/2023 00:04:09 :: MetricLineReceiver connection with 192.168.0.3:54892 closed cleanly
+04/02/2023 00:04:19 :: MetricLineReceiver connection with 192.168.0.3:54917 established
+04/02/2023 00:04:19 :: MetricLineReceiver connection with 192.168.0.3:54917 closed cleanly
+04/02/2023 00:04:29 :: MetricLineReceiver connection with 192.168.0.3:54938 established
+04/02/2023 00:04:29 :: MetricLineReceiver connection with 192.168.0.3:54938 closed cleanly
+04/02/2023 00:04:39 :: MetricLineReceiver connection with 192.168.0.3:54963 established
+04/02/2023 00:04:39 :: MetricLineReceiver connection with 192.168.0.3:54963 closed cleanly
+04/02/2023 00:04:49 :: MetricLineReceiver connection with 192.168.0.3:54988 established
+04/02/2023 00:04:49 :: MetricLineReceiver connection with 192.168.0.3:54988 closed cleanly
+04/02/2023 00:04:59 :: MetricLineReceiver connection with 192.168.0.3:55003 established
+04/02/2023 00:04:59 :: MetricLineReceiver connection with 192.168.0.3:55003 closed cleanly
+04/02/2023 00:05:09 :: MetricLineReceiver connection with 192.168.0.3:55028 established
+04/02/2023 00:05:09 :: MetricLineReceiver connection with 192.168.0.3:55028 closed cleanly
+04/02/2023 00:05:19 :: MetricLineReceiver connection with 192.168.0.3:55053 established
+04/02/2023 00:05:19 :: MetricLineReceiver connection with 192.168.0.3:55053 closed cleanly
+04/02/2023 00:05:29 :: MetricLineReceiver connection with 192.168.0.3:55074 established
+04/02/2023 00:05:29 :: MetricLineReceiver connection with 192.168.0.3:55074 closed cleanly
+04/02/2023 00:05:39 :: MetricLineReceiver connection with 192.168.0.3:55100 established
+04/02/2023 00:05:39 :: MetricLineReceiver connection with 192.168.0.3:55100 closed cleanly
+04/02/2023 00:05:49 :: MetricLineReceiver connection with 192.168.0.3:55126 established
+04/02/2023 00:05:49 :: MetricLineReceiver connection with 192.168.0.3:55126 closed cleanly
+04/02/2023 00:05:59 :: MetricLineReceiver connection with 192.168.0.3:55161 established
+04/02/2023 00:05:59 :: MetricLineReceiver connection with 192.168.0.3:55161 closed cleanly
+04/02/2023 00:06:09 :: MetricLineReceiver connection with 192.168.0.3:55184 established
+04/02/2023 00:06:09 :: MetricLineReceiver connection with 192.168.0.3:55184 closed cleanly
+04/02/2023 00:06:19 :: MetricLineReceiver connection with 192.168.0.3:55209 established
+04/02/2023 00:06:19 :: MetricLineReceiver connection with 192.168.0.3:55209 closed cleanly
+04/02/2023 00:06:29 :: MetricLineReceiver connection with 192.168.0.3:55225 established
+04/02/2023 00:06:29 :: MetricLineReceiver connection with 192.168.0.3:55225 closed cleanly
+04/02/2023 00:06:39 :: MetricLineReceiver connection with 192.168.0.3:55249 established
+04/02/2023 00:06:39 :: MetricLineReceiver connection with 192.168.0.3:55249 closed cleanly
+04/02/2023 00:06:49 :: MetricLineReceiver connection with 192.168.0.3:55274 established
+04/02/2023 00:06:49 :: MetricLineReceiver connection with 192.168.0.3:55274 closed cleanly
+04/02/2023 00:06:59 :: MetricLineReceiver connection with 192.168.0.3:55296 established
+04/02/2023 00:06:59 :: MetricLineReceiver connection with 192.168.0.3:55296 closed cleanly
+04/02/2023 00:07:09 :: MetricLineReceiver connection with 192.168.0.3:55320 established
+04/02/2023 00:07:09 :: MetricLineReceiver connection with 192.168.0.3:55320 closed cleanly
+04/02/2023 00:07:19 :: MetricLineReceiver connection with 192.168.0.3:55346 established
+04/02/2023 00:07:19 :: MetricLineReceiver connection with 192.168.0.3:55346 closed cleanly
+04/02/2023 00:07:29 :: MetricLineReceiver connection with 192.168.0.3:55374 established
+04/02/2023 00:07:29 :: MetricLineReceiver connection with 192.168.0.3:55374 closed cleanly
+04/02/2023 00:07:39 :: MetricLineReceiver connection with 192.168.0.3:55398 established
+04/02/2023 00:07:39 :: MetricLineReceiver connection with 192.168.0.3:55398 closed cleanly
+04/02/2023 00:07:49 :: MetricLineReceiver connection with 192.168.0.3:55423 established
+04/02/2023 00:07:49 :: MetricLineReceiver connection with 192.168.0.3:55423 closed cleanly
+04/02/2023 00:07:59 :: MetricLineReceiver connection with 192.168.0.3:55439 established
+04/02/2023 00:07:59 :: MetricLineReceiver connection with 192.168.0.3:55439 closed cleanly
+04/02/2023 00:08:09 :: MetricLineReceiver connection with 192.168.0.3:55462 established
+04/02/2023 00:08:09 :: MetricLineReceiver connection with 192.168.0.3:55462 closed cleanly
+04/02/2023 00:08:19 :: MetricLineReceiver connection with 192.168.0.3:55488 established
+04/02/2023 00:08:19 :: MetricLineReceiver connection with 192.168.0.3:55488 closed cleanly
+04/02/2023 00:08:29 :: MetricLineReceiver connection with 192.168.0.3:55510 established
+04/02/2023 00:08:29 :: MetricLineReceiver connection with 192.168.0.3:55510 closed cleanly
+04/02/2023 00:08:39 :: MetricLineReceiver connection with 192.168.0.3:55537 established
+04/02/2023 00:08:39 :: MetricLineReceiver connection with 192.168.0.3:55537 closed cleanly
+04/02/2023 00:08:49 :: MetricLineReceiver connection with 192.168.0.3:55563 established
+04/02/2023 00:08:49 :: MetricLineReceiver connection with 192.168.0.3:55563 closed cleanly
+04/02/2023 00:08:59 :: MetricLineReceiver connection with 192.168.0.3:55584 established
+04/02/2023 00:08:59 :: MetricLineReceiver connection with 192.168.0.3:55584 closed cleanly
+04/02/2023 00:09:09 :: MetricLineReceiver connection with 192.168.0.3:55616 established
+04/02/2023 00:09:09 :: MetricLineReceiver connection with 192.168.0.3:55616 closed cleanly
+04/02/2023 00:09:19 :: MetricLineReceiver connection with 192.168.0.3:55641 established
+04/02/2023 00:09:19 :: MetricLineReceiver connection with 192.168.0.3:55641 closed cleanly
+04/02/2023 00:09:29 :: MetricLineReceiver connection with 192.168.0.3:55658 established
+04/02/2023 00:09:29 :: MetricLineReceiver connection with 192.168.0.3:55658 closed cleanly
+04/02/2023 00:09:39 :: MetricLineReceiver connection with 192.168.0.3:55683 established
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | tail -10
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  7 23:59 listener.log.2024_7_7
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  8 23:59 listener.log.2024_7_8
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  9 23:59 listener.log.2024_7_9
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 10 23:59 listener.log.2024_7_10
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 11 23:59 listener.log.2024_7_11
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 12 23:59 listener.log.2024_7_12
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 13 23:59 listener.log.2024_7_13
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 14 23:59 listener.log.2024_7_14
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul 15 23:59 listener.log.2024_7_15
+-rwxr-xr-x. 1 graphite graphite 952K Jul 16 15:06 listener.log
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | head -10
+total 655M
+-rwxr-xr-x. 1 graphite graphite 1.6K Dec 29  2022 console.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5K Dec 29  2022 clients.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 750K Dec 29  2022 listener.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5M Dec 30  2022 listener.log.2022_12_30
+-rwxr-xr-x. 1 graphite graphite 1.5M Dec 31  2022 listener.log.2022_12_31
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  1  2023 listener.log.2023_2_1
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  2  2023 listener.log.2023_2_2
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  3  2023 listener.log.2023_2_3
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  4  2023 listener.log.2023_2_4
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2022*
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | head -10
+total 651M
+-rwxr-xr-x. 1 graphite graphite 1.6K Dec 29  2022 console.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5K Dec 29  2022 clients.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  1  2023 listener.log.2023_2_1
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  2  2023 listener.log.2023_2_2
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  3  2023 listener.log.2023_2_3
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  4  2023 listener.log.2023_2_4
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  5  2023 listener.log.2023_2_5
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  6  2023 listener.log.2023_2_6
+-rwxr-xr-x. 1 graphite graphite 1.5M Feb  7  2023 listener.log.2023_2_7
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2023_2*
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | head -10
+total 610M
+-rwxr-xr-x. 1 graphite graphite 1.6K Dec 29  2022 console.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5K Dec 29  2022 clients.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  1  2023 listener.log.2023_3_1
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  2  2023 listener.log.2023_3_2
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  3  2023 listener.log.2023_3_3
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  4  2023 listener.log.2023_3_4
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  5  2023 listener.log.2023_3_5
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  6  2023 listener.log.2023_3_6
+-rwxr-xr-x. 1 graphite graphite 1.5M Mar  7  2023 listener.log.2023_3_7
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2023_3*
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2023_4*
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2023_5*
+[root@ADPTCTGVMPL1 carbon-relay-a]# rm -f listener.log.2023_6*
+[root@ADPTCTGVMPL1 carbon-relay-a]# ls -lrth | head -10
+total 429M
+-rwxr-xr-x. 1 graphite graphite 1.6K Dec 29  2022 console.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5K Dec 29  2022 clients.log.2022_12_29
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  1  2023 listener.log.2023_7_1
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  2  2023 listener.log.2023_7_2
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  3  2023 listener.log.2023_7_3
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  4  2023 listener.log.2023_7_4
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  5  2023 listener.log.2023_7_5
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  6  2023 listener.log.2023_7_6
+-rwxr-xr-x. 1 graphite graphite 1.5M Jul  7  2023 listener.log.2023_7_7
+[root@ADPTCTGVMPL1 carbon-relay-a]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmpl1-lv_root
+                       20G   13G  5.7G  69% /
+tmpfs                  21G     0   21G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmpl1-lv_mysql
+                       77G   41G   33G  56% /data/mysqlcluster
+/dev/mapper/vg_adptctgvmpl1-lv_tmp
+                      2.0G   27M  1.8G   2% /tmp
+/dev/mapper/vg_adptctgvmpl1-lv_log
+                      2.0G  978M  872M  53% /var/log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 431896
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               10 | 172.29.45.51     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               15 | 172.29.98.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|              529 | 172.29.98.60     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               12 | 172.29.45.53     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               14 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               11 | 172.29.45.56     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              523 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|                1 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              524 | 172.29.98.53     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               13 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              528 | 172.29.98.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              525 | 172.29.45.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.01 sec)
+
+mysql> exit;
+Bye
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 52:54:00:68:E8:21  
+          inet addr:10.32.182.202  Bcast:10.32.182.255  Mask:255.255.255.192
+          inet6 addr: fe80::5054:ff:fe68:e821/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2575032 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:7350286 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:470551752 (448.7 MiB)  TX bytes:6328783257 (5.8 GiB)
+
+eth1      Link encap:Ethernet  HWaddr 52:54:00:E7:A1:1D  
+          inet addr:192.168.0.3  Bcast:192.168.0.255  Mask:255.255.255.0
+          inet6 addr: fe80::5054:ff:fee7:a11d/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:900628020 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:719972630 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:108323984577 (100.8 GiB)  TX bytes:104611500409 (97.4 GiB)
+
+eth2      Link encap:Ethernet  HWaddr 52:54:00:BB:13:9F  
+          inet addr:192.168.28.5  Bcast:192.168.28.31  Mask:255.255.255.224
+          inet6 addr: fe80::5054:ff:febb:139f/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2392552 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1475381 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:180001749 (171.6 MiB)  TX bytes:104542079 (99.6 MiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:97625353 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:97625353 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:15613763009 (14.5 GiB)  TX bytes:15613763009 (14.5 GiB)
+
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# ssh node-4
+root@node-4's password: 
+Last login: Mon Jul  8 12:49:33 2024 from node-3.node.dc1.consul
+[root@ADPTCTGVMPL2 ~]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 431974
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               10 | 172.29.45.51     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               15 | 172.29.98.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|              529 | 172.29.98.60     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               12 | 172.29.45.53     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               14 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               11 | 172.29.45.56     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              523 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|                1 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              524 | 172.29.98.53     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               13 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              528 | 172.29.98.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              525 | 172.29.45.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.01 sec)
+
+mysql> exit;
+Bye
+[root@ADPTCTGVMPL2 ~]# exit
+logout
+Connection to node-4 closed.
+[root@ADPTCTGVMPL1 carbon-relay-a]# grep  -c 'ReplicatedStore'  /var/lib/occas/domains/domain1/servers/traffic-*/logs/traffic-*.log*
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14427:18
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14428:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14429:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14430:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14431:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14432:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14433:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14434:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14435:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log14436:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1_bkp.log:31
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log:54
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00076:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00077:14
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00078:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00079:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00080:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00081:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00082:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00083:2
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00084:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00085:0
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# 
+[root@ADPTCTGVMPL1 carbon-relay-a]# ssh node-4
+root@node-4's password: 
+Last login: Tue Jul 16 14:48:51 2024 from node-3.node.dc1.consul
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# /etc/init.d/nodeManager status  
+2024-07-16 14:51:13,904 [INFO] Node manager (pid 15916) is running
+2024-07-16 14:51:14,612 [INFO] Checking managed server (pid 17168) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-data-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-data-2' : RUNNING
+2024-07-16 14:51:21,141 [INFO] Checking managed server (pid 16144) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-2' : RUNNING
+                                                           [  OK  ]
+[root@ADPTCTGVMPL2 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptctgvmpl2-lv_root
+                       20G  9.0G  9.3G  50% /
+tmpfs                  21G     0   21G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptctgvmpl2-lv_mysql
+                       77G   41G   33G  56% /data/mysqlcluster
+/dev/mapper/vg_adptctgvmpl2-lv_tmp
+                      2.0G   35M  1.8G   2% /tmp
+/dev/mapper/vg_adptctgvmpl2-lv_log
+                      2.0G  3.0M  1.9G   1% /var_log
+192.168.0.101:/.cluster
+                       23G  1.1G   21G   5% /cluster
+[root@ADPTCTGVMPL2 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         41210      24606      16604          0        354       2472
+-/+ buffers/cache:      21778      19432 
+Swap:         8191          0       8191 
+[root@ADPTCTGVMPL2 ~]# top 
+
+top - 14:51:34 up 9 days, 22:45,  1 user,  load average: 0.34, 0.31, 0.22
+Tasks: 441 total,   2 running, 439 sleeping,   0 stopped,   0 zombie
+Cpu(s):  1.2%us,  2.0%sy,  1.6%ni, 94.7%id,  0.1%wa,  0.1%hi,  0.1%si,  0.2%st
+Mem:  42199880k total, 25198308k used, 17001572k free,   363464k buffers
+Swap:  8388604k total,        0k used,  8388604k free,  2532148k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                 
+16144 occas     20   0 12.7g 3.1g 5620 S 10.9  7.7   1095:28 java                                                                                    
+ 5495 mysql     20   0 15.7g  13g 4004 S  7.6 33.2   1117:10 ndbmtd                                                                                  
+17168 occas     20   0 8657m 1.1g 5372 S  3.3  2.8 372:25.25 java                                                                                    
+14393 mysql     20   0 5688m 117m 6988 S  3.0  0.3 425:56.82 mysqld                                                                                  
+ 2487 root      20   0 31180  17m 7568 S  1.0  0.0 201:58.68 consul                                                                                  
+ 2588 root      20   0 22708  13m 4692 S  1.0  0.0 288:56.43 consul-template                                                                         
+15916 occas     20   0 3574m 177m 4040 S  1.0  0.4 159:18.86 java                                                                                    
+21496 elastics  20   0 12.4g 1.1g  12m S  1.0  2.7 150:39.50 java                                                                                    
+ 4251 root      20   0 15296 1564  948 R  0.7  0.0   0:00.13 top                                                                                     
+ 1377 root      20   0     0    0    0 S  0.3  0.0   7:14.84 jbd2/dm-2-8                                                                             
+ 2976 root      29   9  106m 2532 1324 S  0.3  0.0  37:59.42 esa_wrapper_ini                                                                         
+ 3633 root      29   9 8738m 176m  11m S  0.3  0.4  73:50.30 java                                                                                    
+ 3875 root      29   9  797m  12m 5096 S  0.3  0.0  78:10.88 ssmagent.bin                                                                            
+ 4474 redis     RT   0  134m 8928 1116 S  0.3  0.0  62:03.91 redis-server                                                                            
+ 4489 redis     20   0  134m 9552 1064 S  0.3  0.0  30:41.22 redis-server                                                                            
+ 5144 graphite  20   0  103m 1480 1196 S  0.3  0.0   7:12.71 carbon-aggregat                                                                         
+ 5304 graphite  20   0  103m 1488 1196 S  0.3  0.0   7:13.72 graphite-web-se                                                                         
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# grep  -c 'ReplicatedStore'  /var/lib/occas/domains/domain1/servers/traffic-*/logs/traffic-*.log*
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log00207:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log00208:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log00209:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log00210:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00263:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00264:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00265:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00266:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00267:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00268:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00269:356
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00270:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00271:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00272:35
+[root@ADPTCTGVMPL2 ~]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 432082
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               10 | 172.29.45.51     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               15 | 172.29.98.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|              529 | 172.29.98.60     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               12 | 172.29.45.53     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|               14 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               11 | 172.29.45.56     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              523 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|                1 | 172.29.45.107    | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              524 | 172.29.98.53     | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               13 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              528 | 172.29.98.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
+|              525 | 172.29.45.58     | 5060               | gdlctgicscf.ldi.telmex.com | 5060                    |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> exit;
+Bye
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# 
+[root@ADPTCTGVMPL2 ~]# ssh root@10.32.182.212
+root@10.32.182.212's password: 
+Last login: Sun Jul 14 11:40:03 2024 from 10.94.184.208
+[root@ADPTCTGVMSLB1 ~]# cd share
+[root@ADPTCTGVMSLB1 share]# ls -lrth
+total 15M
+-rw-r--r--. 1 root root 115K Nov 10  2023 CTG_SLB1_10-11-23_10-56.pcap
+-rw-r--r--. 1 root root 168K Nov 16  2023 CTG_SLB1_16-11-23_13-09.pcap
+-rw-r--r--. 1 root root 206K Nov 23  2023 CTG_SLB1_23-11-23_11-15.pcap
+-rw-r--r--. 1 root root 439K Nov 30  2023 CTG_SLB1_30-11-23_11-43.pcap
+-rw-r--r--. 1 root root 262K Dec  7  2023 CTG_SLB1_07-12-23_11-25.pcap
+-rw-r--r--. 1 root root 501K Dec 14  2023 CTG_SLB1_14-12-23_12-25.pcap
+-rw-r--r--. 1 root root 306K Dec 21  2023 CTG_SLB1_21-12-23_14-25.pcap
+-rw-r--r--. 1 root root 344K Jan  2  2024 CTG_SLB1_02-01_2024_11-25.pcap
+-rw-r--r--. 1 root root 298K Jan  4  2024 CTG_SLB1_04-01_2024_11-42.pcap
+-rw-r--r--. 1 root root 126K Jan 23 13:26 CTG_SLB1_24-01-23_13-24.pcap
+-rw-r--r--. 1 root root 379K Feb  6 13:25 CTG_SLB1_06-02_2024_13-20.pcap
+-rw-r--r--. 1 root root 474K Feb 22 09:35 CTG_SLB1_22-02_2024_09-30.pcap
+-rw-r--r--. 1 root root 601K Mar  8 13:32 CTG_SLB1_08-03_2024_13-28.pcap
+-rw-r--r--. 1 root root 507K Mar 22 12:24 CTG_SLB1_22-03_2024_11-28.pcap
+-rw-r--r--. 1 root root 1.5M Mar 27 13:31 CTG_SLB1_27-03_2024_13-24.pcap
+-rw-r--r--. 1 root root 253K Apr  5 13:17 CTG_SLB1_05-04_2024_13-14.pcap
+-rw-r--r--. 1 root root 113K Apr 18 12:37 CTG_SLB1_20240418_123557.pcap
+-rw-r--r--. 1 root root 545K Apr 26 13:33 CTG_SLB1_20240426_133040.pcap
+-rw-r--r--. 1 root root 810K Apr 30 17:13 CTG_SLB1_20240430_171008.pcap
+-rw-r--r--. 1 root root 589K May  7 10:39 CTG_SLB1_20240507_103606.pcap
+-rw-r--r--. 1 root root 823K May 15 14:01 CTG_SLB1_20240515_135508.pcap
+-rw-r--r--. 1 root root 939K May 22 13:05 CTG_SLB1_20240522_130055.pcap
+-rw-r--r--. 1 root root 315K May 27 13:17 CTG_SLB1_20240527_131433.pcap
+-rw-r--r--. 1 root root 1.5M Jun  4 11:15 CTG_SLB1_20240604_110653.pcap
+-rw-r--r--. 1 root root 364K Jun 13 10:53 CTG_SLB1_20240613_105146.pcap
+-rw-r--r--. 1 root root 164K Jun 21 22:59 CTG_SLB1_20240621_225712.pcap
+-rw-r--r--. 1 root root  66K Jun 22 00:02 CTG_SLB1_20240622_000102.pcap
+-rw-r--r--. 1 root root 1.8M Jun 26 10:13 CTG_SLB1_20240626_100436.pcap
+[root@ADPTCTGVMSLB1 share]# tcpdump -s0 -i any -w /root/share/CTG_SLB1_`date +%Y%m%d`_`date +%H%M%S`.pcap -c 50000
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+^C7073 packets captured
+7397 packets received by filter
+0 packets dropped by kernel
+[root@ADPTCTGVMSLB1 share]# tcpdump -i any -s 0 port 5060 -v -c 1000 | grep -B3 "503 Serv"
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+1000 packets captured
+1000 packets received by filter
+0 packets dropped by kernel
+[root@ADPTCTGVMSLB1 share]# tcpdump -i any -s 0 port 5060 -v -c 1000 | grep -B3 "500 Inter"
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+1000 packets captured
+1000 packets received by filter
+0 packets dropped by kernel
+[root@ADPTCTGVMSLB1 share]# 

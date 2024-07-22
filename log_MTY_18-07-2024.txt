@@ -1,0 +1,619 @@
+sopsna@qimsgou2> ssh root@10.65.10.200
+root@10.65.10.200's password: 
+Last login: Tue Jul 16 11:55:15 2024 from 10.94.184.208
+[root@ADPTMAYVMSC1 ~]# component check_health 
+========================================
+The following servers are defined:
+Server=AdminServer, machine=, state=RUNNING, health_state=OK
+Server=oam-1, machine=node-1, state=RUNNING, health_state=OK
+Server=oam-2, machine=node-2, state=RUNNING, health_state=OK
+Server=traffic-1, machine=node-3, state=RUNNING, health_state=OK
+Server=traffic-2, machine=node-4, state=RUNNING, health_state=OK
+Server=traffic-data-1, machine=node-3, state=RUNNING, health_state=OK
+Server=traffic-data-2, machine=node-4, state=RUNNING, health_state=OK
+========================================
+The following applications are deployed:
+Application=oam-caf-ra, target=oam, state=STATE_ACTIVE, version=1.0.54
+Application=oam-caf-ra, target=traffic, state=STATE_ACTIVE, version=1.0.54
+Application=lmf-rar, target=oam, state=STATE_ACTIVE, version=1.0.54
+Application=lmf-rar, target=traffic, state=STATE_ACTIVE, version=1.0.54
+Application=ece-log-agent, target=oam, state=STATE_ACTIVE, version=1.0.7
+Application=ece-log-agent, target=traffic, state=STATE_ACTIVE, version=1.0.7
+Application=SessionRA, target=traffic, state=STATE_ACTIVE, version=2.0.5
+Application=generator, target=traffic, state=STATE_ACTIVE, version=3.0.2
+Application=Foundation, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=FoundationAdmin, target=oam, state=STATE_ACTIVE, version=2.0.2
+Application=RepositoryEditorProductionEar, target=oam, state=STATE_ACTIVE, version=4.0.2
+Application=SS7SelectorTraffic, target=traffic, state=STATE_ACTIVE, version=1.1.27
+Application=SS7SelectorWS, target=oam, state=STATE_ACTIVE, version=1.1.27
+Application=ss7-correlation-service, target=traffic, state=STATE_ACTIVE, version=1.0.29
+Application=ss7-capv2-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.15
+Application=ss7-capv4-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.12
+Application=ss7-cs1plus-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.15
+Application=ss7-map-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.20
+Application=ss7-mapv1-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.2.14
+Application=ss7-acar-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.0.5
+Application=ss7-capv1-responder-ear-app, target=traffic, state=STATE_ACTIVE, version=1.0.2
+Application=jms-notran-adp, target=oam, state=STATE_ACTIVE, version=not_determined
+Application=jms-notran-adp, target=traffic, state=STATE_ACTIVE, version=not_determined
+Application=cdr-sequencer-app, target=oam, state=STATE_ACTIVE, version=3.0.3
+Application=cdr-ear-app, target=traffic, state=STATE_ACTIVE, version=3.0.3
+Application=CommonServiceEar, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=MsaEar, target=traffic, state=STATE_ACTIVE, version=4.0.2
+Application=ws-in-disco-ra, target=traffic, state=STATE_ACTIVE, version=1.1.14
+Application=AcSipEar, target=traffic, state=STATE_ACTIVE, version=4.0.2
+Application=AcCoreSS7Ear, target=traffic, state=STATE_ACTIVE, version=3.1.18
+Application=tcap-ra, target=traffic, state=STATE_ACTIVE, version=1.3.33
+Application=SendATI, target=traffic, state=STATE_ACTIVE, version=1.0.27
+Application=XcapInterface, target=traffic, state=STATE_ACTIVE, version=1.0.9
+Application=diameter-ra, target=traffic, state=STATE_ACTIVE, version=1.1.27
+Application=messaging-connectivity-bridge-war, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=messaging-discovery-ra, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=Messaging, target=traffic, state=STATE_ACTIVE, version=2.0.2
+Application=TELMEX_IMS_ADAPTOR, target=traffic, state=STATE_ACTIVE, version=0.2.27
+Application=TELMEX_IMS_ADAPTOR_GUI, target=oam, state=STATE_ACTIVE, version=0.0.12
+Total: 35
+========================================
+Success.
+    See /opt/ericsson/components/clm-check_health-ADPTMAYVMSC1.log for debug information
+You have new mail in /var/spool/mail/root
+[root@ADPTMAYVMSC1 ~]# mysql-cluster-status 
+MySQL Cluster Status
+--------------------
+[ndbd(NDB)]     2 node(s)
+  ndbd-1-1@ADPTMAYVMPL1    started
+  ndbd-1-2@ADPTMAYVMPL2    started
+[ndb_mgmd(MGM)] 2 node(s)
+  mgmd-1@ADPTMAYVMSC1    started
+  mgmd-2@ADPTMAYVMSC2    started
+[mysqld(API)]   2 node(s)
+  mysqld-1@ADPTMAYVMPL1    started
+  mysqld-2@ADPTMAYVMPL2    started
+[root@ADPTMAYVMSC1 ~]# printActiveAlarms
+Active alarms:
+!---------------------------------------------------------------
+Module             : egi
+Error Code         : 299253
+Resource Id        : 1.1.1.34823
+Timestamp First    : Mon Mar 25 09:28:09 GMT-06:00 2024
+Repeated Counter   : 1
+Timestamp Last     : Mon Mar 25 09:28:09 GMT-06:00 2024
+Model Description  : Redirect Server quarantine with error message: {0} : 1.1.1.34823
+Active Description : 
+Event Type         : 6
+Probable Cause     : 1
+Severity           : critical
+Orig Source IP     : 10.65.10.202
+Sequence Number    : 1004979
+---------------------------------------------------------------!
+!---------------------------------------------------------------
+Module             : caf
+Error Code         : 271964
+Resource Id        : 1.1.1.32712
+Timestamp First    : Thu Jul 18 11:34:19 GMT-06:00 2024
+Repeated Counter   : 1
+Timestamp Last     : Thu Jul 18 11:34:19 GMT-06:00 2024
+Model Description  : Licensing: License server unreachable
+Active Description : 
+Event Type         : 4
+Probable Cause     : 1024
+Severity           : major
+Orig Source IP     : 10.65.10.203
+Sequence Number    : 1058944
+---------------------------------------------------------------!
+[root@ADPTMAYVMSC1 ~]# /etc/init.d/nodeManager status  
+2024-07-18 11:34:49,826 [INFO] Node manager (pid 7881) is running
+2024-07-18 11:34:50,541 [INFO] Checking managed server (pid 25709) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'oam-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'oam-1' : RUNNING
+                                                           [  OK  ]
+[root@ADPTMAYVMSC1 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptmayvmsc1-lv_root
+                       13G  8.2G  4.0G  68% /
+tmpfs                  12G     0   12G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptmayvmsc1-lv_cdr
+                      2.0G  3.0M  1.9G   1% /date/localcdr
+/dev/mapper/vg_adptmayvmsc1-lv_tmp
+                      2.0G   39M  1.8G   3% /tmp
+/dev/mapper/vg_adptmayvmsc1-lv_data
+                      2.1G  3.3M  2.0G   1% /var/lib/centrallogging/data
+/dev/mapper/vg_adptmayvmsc1-lv_graphite
+                      9.8G   23M  9.2G   1% /var/lib/graphite/storage
+/dev/mapper/vg_adptmayvmsc1-lv_log
+                      2.0G  381M  1.5G  21% /var/log
+192.168.0.101:/.cluster
+                       23G  809M   21G   4% /cluster
+/dev/mapper/cluster_vg-data_lv
+                       23G  809M   21G   4% /.cluster
+[root@ADPTMAYVMSC1 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         23460      20723       2737          0        678       3667
+-/+ buffers/cache:      16377       7083 
+Swap:         7999          2       7997 
+[root@ADPTMAYVMSC1 ~]# top 
+
+top - 11:35:03 up 2207 days, 21:25,  1 user,  load average: 0.77, 0.47, 0.31
+Tasks: 363 total,   1 running, 362 sleeping,   0 stopped,   0 zombie
+Cpu(s):  2.2%us,  4.7%sy,  0.6%ni, 91.8%id,  0.0%wa,  0.1%hi,  0.2%si,  0.4%st
+Mem:  24023668k total, 21221984k used,  2801684k free,   694872k buffers
+Swap:  8191996k total,     2732k used,  8189264k free,  3755524k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                      
+25709 occas     20   0 7818m 1.4g 5964 S  4.9  6.2  54938:09 java                                                                         
+29736 root      20   0 15264 1496  948 R  3.0  0.0   0:00.26 top                                                                          
+ 2256 root      20   0 65548  31m  17m S  2.6  0.1  69706:23 consul                                                                       
+19962 occas     20   0 8597m 2.5g 5348 S  2.6 11.0  26995:08 java                                                                         
+ 2458 root      20   0 21428  13m 4716 S  2.3  0.1  54429:40 consul-template                                                              
+14989 root      20   0 3240m 166m  11m S  2.3  0.7  56094:37 java                                                                         
+ 2905 root      29   9 5606m 195m  11m S  2.0  0.8  44991:31 java                                                                         
+13938 root      20   0     0    0    0 S  2.0  0.0   7562:30 nfsd                                                                         
+ 2533 root      20   0 9129m 838m  13m S  1.3  3.6   7922:11 java                                                                         
+ 4387 mysql     20   0 1531m  17m 1436 S  1.3  0.1  52068:25 ndb_mgmd                                                                     
+ 7881 occas     20   0 3253m 180m 4048 S  1.3  0.8  30282:49 java                                                                         
+13939 root      20   0     0    0    0 S  1.3  0.0   7581:58 nfsd                                                                         
+ 2589 root      20   0  5304 2356 1080 S  1.0  0.0  11724:20 lserv                                                                        
+ 4143 redis     20   0  134m 9916 1388 S  0.7  0.0  20667:39 redis-sentinel                                                               
+10363 root      20   0  114m 1348  736 S  0.7  0.0 881:21.43 crond                                                                        
+14956 root      20   0 11816 1900 1156 S  0.7  0.0  10383:48 ss7-3sm                                                                      
+   47 root      20   0     0    0    0 S  0.3  0.0   1286:25 events/4                                                                     
+ 1254 root      20   0     0    0    0 S  0.3  0.0 322:13.51 jbd2/dm-7-8                                                                  
+ 2404 haproxy   20   0 49920 2284  640 S  0.3  0.0   4620:19 haproxy                                                                      
+[root@ADPTMAYVMSC1 ~]# mysqlclient
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 84750766
+Server version: 5.5.44-ndb-7.2.21-cluster-commercial-advanced-log MySQL Cluster Server - Advanced Edition (Commercial)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use telmex_ims_ece_adaptor;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from configuration;
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+| configuration_id | configuration_ip | configuration_port | configuration_cscf_ip      | configuration_cscf_port | quarantine |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+|               41 | 172.29.98.56     | 5060               | mtymayscscf.ims.telmex.com | 5060                    |          0 |
+|               50 | 172.29.45.58     | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|               47 | 172.29.98.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|              303 | 172.29.98.58     | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|               51 | 172.20.45.60     | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|               39 | 172.29.98.51     | 5060               | mtymayscscf.ims.telmex.com | 5060                    |          0 |
+|               48 | 172.29.45.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|               42 | 172.29.45.107    | 5060               | mtymaycscf.ldi.telmex.com  | 5060                    |          0 |
+|               40 | 172.29.98.53     | 5060               | mtymayscscf.ims.telmex.com | 5060                    |          0 |
+|               46 | 172.29.98.153    | 5060               | mtymayscscf.ims.telmex.com | 5060                    |          0 |
+|               45 | 172.29.45.153    | 5060               | gdlctgscscf.ims.telmex.com | 5060                    |          0 |
+|               38 | 192.168.1.1      | 5060               | 5060                       | domain.test.com         |          0 |
++------------------+------------------+--------------------+----------------------------+-------------------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> exit;
+Bye
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# 
+[root@ADPTMAYVMSC1 ~]# ssh node-2
+root@node-2's password: 
+Last login: Wed Jul 10 09:18:54 2024 from node-1.node.dc1.consul
+[root@ADPTMAYVMSC2 ~]# /etc/init.d/nodeManager status  
+2024-07-18 11:36:34,271 [INFO] Node manager (pid 19106) is running
+2024-07-18 11:36:34,982 [INFO] Checking managed server (pid 15421) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'oam-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'oam-2' : RUNNING
+                                                           [  OK  ]
+[root@ADPTMAYVMSC2 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptmayvmsc2-lv_root
+                       13G  7.9G  4.4G  65% /
+tmpfs                  12G     0   12G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptmayvmsc2-lv_cdr
+                      2.0G  3.1M  1.9G   1% /data/localcdr
+/dev/mapper/vg_adptmayvmsc2-lv_tmp
+                      2.0G   33M  1.8G   2% /tmp
+/dev/mapper/vg_adptmayvmsc2-lv_data
+                      2.1G  3.3M  2.0G   1% /var/lib/centrallogging/data
+/dev/mapper/vg_adptmayvmsc2-lv_graphite
+                      9.8G   23M  9.2G   1% /var/lib/graphite/storage
+/dev/mapper/vg_adptmayvmsc2-lv_log
+                      2.0G  362M  1.5G  20% /var/log
+192.168.0.101:/.cluster
+                       23G  809M   21G   4% /cluster
+[root@ADPTMAYVMSC2 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         23460      21189       2270          0        375       3623
+-/+ buffers/cache:      17190       6270 
+Swap:         7999          0       7999 
+[root@ADPTMAYVMSC2 ~]# top 
+
+top - 11:36:47 up 2207 days, 21:22,  1 user,  load average: 1.80, 1.81, 1.65
+Tasks: 335 total,   1 running, 334 sleeping,   0 stopped,   0 zombie
+Cpu(s):  1.9%us,  3.0%sy,  0.2%ni, 94.6%id,  0.0%wa,  0.1%hi,  0.1%si,  0.3%st
+Mem:  24023668k total, 21700024k used,  2323644k free,   385016k buffers
+Swap:  8191996k total,      272k used,  8191724k free,  3710504k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                      
+ 2248 root      20   0 65548  31m  17m S  4.9  0.1 128935:19 consul                                                                       
+ 2452 root      20   0 21684  13m 4716 S  2.6  0.1  55813:52 consul-template                                                              
+ 4477 mysql     20   0  826m  16m 1388 S  2.3  0.1  52178:54 ndb_mgmd                                                                     
+15421 occas     20   0 7834m 1.4g 5964 S  2.0  6.1  58050:57 java                                                                         
+28392 root      20   0 15160 1472  948 R  2.0  0.0   0:00.23 top                                                                          
+ 9408 root      29   9 5605m 195m  11m S  1.3  0.8  33314:19 java                                                                         
+19106 occas     20   0 3253m 179m 4040 S  1.3  0.8  30468:52 java                                                                         
+ 4162 redis     20   0  134m 7864 1388 S  1.0  0.0  20377:42 redis-sentinel                                                               
+ 2526 root      20   0 9193m 854m  13m S  0.7  3.6   8676:23 java                                                                         
+   31 root      RT   0     0    0    0 S  0.3  0.0 479:48.37 migration/7                                                                  
+   47 root      20   0     0    0    0 S  0.3  0.0   1416:06 events/4                                                                     
+ 2483 root      20   0  106m 1856 1256 S  0.3  0.0   2533:19 bash                                                                         
+ 2515 root      20   0  106m 2012 1256 S  0.3  0.0  10334:05 licenseserver-w                                                              
+ 2584 root      20   0  5252 2276 1036 S  0.3  0.0  12321:03 lserv                                                                        
+ 3504 root      29   9  862m  12m 5100 S  0.3  0.1  19860:22 ssmagent.bin                                                                 
+ 4055 redis     20   0  103m 1540 1212 S  0.3  0.0   2770:29 sentinel_wrappe                                                              
+ 9232 root      29   9 5511m 150m  11m S  0.3  0.6   4416:54 java                                                                         
+    1 root      20   0 19232 1424 1200 S  0.0  0.0  50:00.35 init                                                                         
+    2 root      20   0     0    0    0 S  0.0  0.0  61:59.50 kthreadd                                                                     
+[root@ADPTMAYVMSC2 ~]# 
+[root@ADPTMAYVMSC2 ~]# 
+[root@ADPTMAYVMSC2 ~]# 
+[root@ADPTMAYVMSC2 ~]# 
+[root@ADPTMAYVMSC2 ~]# 
+[root@ADPTMAYVMSC2 ~]# ssh node-3
+root@node-3's password: 
+Last login: Tue Jul 16 12:11:45 2024 from node-1.node.dc1.consul
+[root@ADPTMAYVMPL1 ~]# /etc/init.d/nodeManager status  
+2024-07-18 11:37:52,990 [INFO] Node manager (pid 22161) is running
+2024-07-18 11:37:53,726 [INFO] Checking managed server (pid 9627) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-data-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-data-1' : RUNNING
+2024-07-18 11:37:59,996 [INFO] Checking managed server (pid 9708) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-1'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-1' : RUNNING
+                                                           [  OK  ]
+[root@ADPTMAYVMPL1 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptmayvmpl1-lv_root
+                       20G   12G  6.6G  65% /
+tmpfs                  21G     0   21G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptmayvmpl1-lv_mysql
+                       77G   41G   32G  57% /data/mysqlcluster
+/dev/mapper/vg_adptmayvmpl1-lv_tmp
+                      2.0G   23M  1.8G   2% /tmp
+/dev/mapper/vg_adptmayvmpl1-lv_log
+                      2.0G  858M  992M  47% /var/log
+192.168.0.101:/.cluster
+                       23G  810M   21G   4% /cluster
+[root@ADPTMAYVMPL1 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         41210      34368       6842          0        621       7571
+-/+ buffers/cache:      26174      15036 
+Swap:         8191          0       8191 
+[root@ADPTMAYVMPL1 ~]# top 
+
+top - 11:38:13 up 2161 days, 15:44,  1 user,  load average: 0.39, 0.24, 0.19
+Tasks: 456 total,   1 running, 455 sleeping,   0 stopped,   0 zombie
+Cpu(s):  1.1%us,  1.2%sy,  0.1%ni, 97.3%id,  0.0%wa,  0.0%hi,  0.1%si,  0.2%st
+Mem:  42199880k total, 35194976k used,  7004904k free,   636640k buffers
+Swap:  8388604k total,        0k used,  8388604k free,  7753332k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                      
+ 5584 mysql     20   0 15.7g  13g 4032 S  7.6 33.2 247193:44 ndbmtd                                                                       
+ 9708 occas     20   0 12.8g 3.1g 5628 S  7.6  7.8   2633:32 java                                                                         
+ 9627 occas     20   0 8590m 1.1g 5372 S  5.6  2.8 908:39.68 java                                                                         
+ 2449 root      20   0 22964  15m 4708 S  3.3  0.0  61868:44 consul-template                                                              
+ 2373 root      20   0 67084  32m  17m S  2.6  0.1  69487:28 consul                                                                       
+11979 mysql     20   0 6203m 127m 7220 S  2.6  0.3  92829:57 mysqld                                                                       
+18319 elastics  20   0 12.4g 1.1g  12m S  1.3  2.7  31806:32 java                                                                         
+ 1465 root      20   0 15296 1576  948 R  1.0  0.0   0:00.18 top                                                                          
+22161 occas     20   0 3703m 180m 4040 S  0.7  0.4  14203:59 java                                                                         
+   25 root      20   0     0    0    0 S  0.3  0.0 200:43.56 ksoftirqd/5                                                                  
+   59 root      RT   0     0    0    0 S  0.3  0.0 248:45.67 migration/14                                                                 
+ 1335 root      20   0     0    0    0 S  0.3  0.0 161:37.89 jbd2/dm-3-8                                                                  
+ 2571 root      29   9  106m 2544 1324 S  0.3  0.0   8386:30 esa_wrapper_ini                                                              
+ 2845 root      29   9 6242m 190m  11m S  0.3  0.5   9008:49 java                                                                         
+ 3463 root      29   9  797m  13m 5096 S  0.3  0.0  17481:14 ssmagent.bin                                                                 
+ 4085 redis     20   0  134m 7660 1388 S  0.3  0.0  15029:07 redis-sentinel                                                               
+ 5323 graphite  20   0  103m 1492 1196 S  0.3  0.0   1518:18 graphite-web-se                                                              
+18299 root      20   0  106m 1992 1256 S  0.3  0.0   9308:09 elasticsearch                                                                
+19281 root      20   0  778m 771m 2404 S  0.3  1.9   1715:59 be                                                                           
+[root@ADPTMAYVMPL1 ~]# grep  -c 'ReplicatedStore'  /var/lib/occas/domains/domain1/servers/traffic-*/logs/traffic-*.log*
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15910:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15911:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15912:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15913:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15914:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15915:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15916:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15917:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15918:0
+/var/lib/occas/domains/domain1/servers/traffic-1/logs/traffic-1.log15919:0
+/var/lib/occas/domains/domain1/servers/traffic-1-orig2/logs/traffic-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-1-orig3/logs/traffic-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00057:15
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00058:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00059:16
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00060:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00061:13224
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00062:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00063:0
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00064:19
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00065:2
+/var/lib/occas/domains/domain1/servers/traffic-data-1/logs/traffic-data-1.log00066:65
+/var/lib/occas/domains/domain1/servers/traffic-data-1-new/logs/traffic-data-1.log:0
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# 
+[root@ADPTMAYVMPL1 ~]# ssh node-4
+root@node-4's password: 
+Last login: Wed Jul 10 09:21:10 2024 from node-3.node.dc1.consul
+[root@ADPTMAYVMPL2 ~]# /etc/init.d/nodeManager status  
+2024-07-18 11:39:05,534 [INFO] Node manager (pid 17024) is running
+2024-07-18 11:39:06,302 [INFO] Checking managed server (pid 3913) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-2' : RUNNING
+2024-07-18 11:39:12,565 [INFO] Checking managed server (pid 3476) status using WLST..
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+Arguments are [('--domain-home', '/cluster/home/occas/domains/domain1'), ('--admin-url', 't3s://wls-admin-server:9002'), ('--server-name', 'traffic-data-2'), ('--action', 'show')]
+Connecting to t3s://wls-admin-server:9002 with userid weblogic ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'domain1'.
+
+Current state of 'traffic-data-2' : RUNNING
+                                                           [  OK  ]
+[root@ADPTMAYVMPL2 ~]# df -h 
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/mapper/vg_adptmayvmpl2-lv_root
+                       20G   12G  7.1G  61% /
+tmpfs                  21G     0   21G   0% /dev/shm
+/dev/vda1             477M   38M  414M   9% /boot
+/dev/mapper/vg_adptmayvmpl2-lv_mysql
+                       77G   41G   32G  57% /data/mysqlcluster
+/dev/mapper/vg_adptmayvmpl2-lv_tmp
+                      2.0G   30M  1.8G   2% /tmp
+/dev/mapper/vg_adptmayvmpl2-lv_log
+                      2.0G  819M  1.1G  45% /var/log
+192.168.0.101:/.cluster
+                       23G  810M   21G   4% /cluster
+[root@ADPTMAYVMPL2 ~]# free -m 
+             total       used       free     shared    buffers     cached
+Mem:         41210      33511       7699          0        578       6933
+-/+ buffers/cache:      25998      15212 
+Swap:         8191          0       8191 
+[root@ADPTMAYVMPL2 ~]# top 
+
+top - 11:39:31 up 2161 days, 15:25,  1 user,  load average: 3.14, 2.67, 2.81
+Tasks: 436 total,   1 running, 435 sleeping,   0 stopped,   0 zombie
+Cpu(s):  7.5%us,  1.7%sy,  1.8%ni, 88.5%id,  0.0%wa,  0.1%hi,  0.1%si,  0.3%st
+Mem:  42199880k total, 34317140k used,  7882740k free,   592784k buffers
+Swap:  8388604k total,        0k used,  8388604k free,  7100352k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                      
+ 3913 occas     20   0 14.1g 3.3g 5628 S 109.5  8.1  39222:22 java                                                                        
+ 4923 mysql     20   0 15.7g  13g 3944 S  7.3 33.2 249286:03 ndbmtd                                                                       
+ 3476 occas     20   0 8657m 1.1g 5404 S  7.0  2.8 939:06.40 java                                                                         
+10445 mysql     20   0 8453m 132m 6984 S  3.0  0.3  93490:55 mysqld                                                                       
+ 2374 root      20   0 32748  19m 7580 S  2.0  0.0  42839:53 consul                                                                       
+ 3220 root      29   9 8697m 176m  11m S  2.0  0.4  16623:31 java                                                                         
+ 3405 root      29   9  797m  13m 5096 S  2.0  0.0  17616:29 ssmagent.bin                                                                 
+ 2478 root      20   0 23220  13m 4700 S  1.0  0.0  62899:40 consul-template                                                              
+15783 elastics  20   0 12.4g 1.1g  12m S  1.0  2.7  31815:36 java                                                                         
+17024 occas     20   0 3639m 181m 4040 S  0.7  0.4   6259:51 java                                                                         
+    9 root      20   0     0    0    0 S  0.3  0.0 180:16.48 ksoftirqd/1                                                                  
+   19 root      RT   0     0    0    0 S  0.3  0.0 230:53.90 migration/4                                                                  
+   78 root      20   0     0    0    0 S  0.3  0.0   1316:28 events/11                                                                    
+ 2567 root      29   9  106m 2548 1324 S  0.3  0.0   8564:24 esa_wrapper_ini                                                              
+ 2836 root      29   9 6242m 188m  11m S  0.3  0.5   9040:30 java                                                                         
+ 3857 redis     20   0  103m 1536 1212 S  0.3  0.0   2592:31 redis_wrapper_i                                                              
+ 3989 redis     RT   0  146m 8864 1172 S  0.3  0.0  10146:00 redis-server                                                                 
+ 4002 redis     20   0  134m 8900 1104 S  0.3  0.0   8207:34 redis-server                                                                 
+ 4404 graphite  20   0  103m 1476 1196 S  0.3  0.0   1507:01 carbon-relay-se                                                              
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# grep  -c 'ReplicatedStore'  /var/lib/occas/domains/domain1/servers/traffic-*/logs/traffic-*.log*
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16071:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16072:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16073:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16074:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16075:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16076:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16077:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16078:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16079:0
+/var/lib/occas/domains/domain1/servers/traffic-2/logs/traffic-2.log16080:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00338:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00339:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00340:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00341:16
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00342:1976
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00343:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00344:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00345:37
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00346:0
+/var/lib/occas/domains/domain1/servers/traffic-data-2/logs/traffic-data-2.log00347:0
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# 
+[root@ADPTMAYVMPL2 ~]# ssh root@10.65.10.212
+root@10.65.10.212's password: 
+Last login: Tue Jul 16 12:07:36 2024 from 10.65.10.200
+[root@ADPTMAYVMSLB1 ~]# cd share
+[root@ADPTMAYVMSLB1 share]# ls -lrth
+total 75M
+-rw-r--r--. 1 root root 395K Nov 10  2023 CTG_SLB1_10-11-23_10-24.pcap
+-rw-r--r--. 1 root root 753K Nov 10  2023 500_CTG_SLB1_11-10-23-10-28.log
+-rw-r--r--. 1 root root 722K Nov 10  2023 503_MTY_SLB1_10-11-23-10-30.log
+-rw-r--r--. 1 root root 513K Nov 16  2023 MTY_SLB1_16-11-23_12-52.pcap
+-rw-r--r--. 1 root root 1.8M Nov 23  2023 MTY_SLB1_23-11-23_10-45.pcap
+-rw-r--r--. 1 root root 2.0M Nov 30  2023 MTY_SLB1_30-11-23_11-27.pcap
+-rw-r--r--. 1 root root 840K Dec  7  2023 MTY_SLB1_07-12-23_10-45.pcap
+-rw-r--r--. 1 root root 1.3M Dec 14  2023 MTY_SLB1_14-12-23_12-06.pcap
+-rw-r--r--. 1 root root 1.4M Dec 21  2023 MTY_SLB1_21-12-23_14-14.pcap
+-rw-r--r--. 1 root root 885K Jan  2  2024 MTY_SLB1_02-01-2024_10-39.pcap
+-rw-r--r--. 1 root root 3.8M Jan  4  2024 MTY_SLB1_04-01-2024_11-24.pcap
+-rw-r--r--. 1 root root 1.5M Jan 23 12:28 MTY_SLB1_24-01-23_12-25.pcap
+-rw-r--r--. 1 root root 2.8M Feb  6 11:43 MTY_SLB1_06-02-2024_11-24.pcap
+-rw-r--r--. 1 root root 1.8M Feb 22 09:17 MTY_SLB1_22-02-2024_09-14.pcap
+-rw-r--r--. 1 root root 648K Mar  8 13:10 MTY_SLB1_08-03-2024_13-08.pcap
+-rw-r--r--. 1 root root 2.6M Mar 22 11:31 MTY_SLB1_22-03-2024_11-28.pcap
+-rw-r--r--. 1 root root 9.1M Mar 27 11:47 MTY_SLB1_27-03-2024_11-34.pcap
+-rw-r--r--. 1 root root  11M Apr  5 12:45 CTG_SLB1_05-04_2024_12-31.pcap
+-rw-r--r--. 1 root root 2.1M Apr 18 11:57 MTY_SLB1_20240418_115352.pcap
+-rw-r--r--. 1 root root 1.2M Apr 26 13:09 MTY_SLB1_20240426_130817.pcap
+-rw-r--r--. 1 root root 3.9M Apr 30 16:58 MTY_SLB1_20240430_165133.pcap
+-rw-r--r--. 1 root root 2.3M May  7 10:12 MTY_SLB1_20240507_100837.pcap
+-rw-r--r--. 1 root root 2.3M May 15 13:23 MTY_SLB1_20240515_131934.pcap
+-rw-r--r--. 1 root root 3.9M May 22 12:35 MTY_SLB1_20240522_123059.pcap
+-rw-r--r--. 1 root root 3.4M May 27 13:02 MTY_SLB1_20240527_125916.pcap
+-rw-r--r--. 1 root root 1.5M Jun  4 10:45 MTY_SLB1_20240604_104351.pcap
+-rw-r--r--. 1 root root 2.1M Jun 13 09:23 MTY_SLB1_20240613_092043.pcap
+-rw-r--r--. 1 root root 2.9M Jun 26 09:42 MTY_SLB1_20240626_093629.pcap
+-rw-r--r--. 1 root root 451K Jul  7 22:09 MTY_SLB1_20240707_220647.pcap
+-rw-r--r--. 1 root root 6.2M Jul 10 09:36 MTY_SLB1_20240710_092545.pcap
+-rw-r--r--. 1 root root  48K Jul 16 12:09 MTY_SLB1_20240716_120921.pcap
+[root@ADPTMAYVMSLB1 share]# tcpdump -s0 -i any -w /root/share/MTY_SLB1_`date +%Y%m%d`_`date +%H%M%S`.pcap -c 50000
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+^C4061 packets captured
+4142 packets received by filter
+0 packets dropped by kernel
+[root@ADPTMAYVMSLB1 share]# tcpdump -i any -s 0 port 5060 -v | grep "INVITE "
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+	INVITE sip:app-1pn6mtetzed8y@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-1pn6mtetzed8y SIP/2.0
+	INVITE sip:app-1pn6mtetzed8y@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-1pn6mtetzed8y SIP/2.0
+	INVITE sip:172.27.24.215:5060 SIP/2.0
+	INVITE sip:172.27.24.215:5060 SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-16iwzbxwoxyia SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-16iwzbxwoxyia SIP/2.0
+	INVITE sip:172.27.24.216:5060;transport=UDP SIP/2.0
+	INVITE sip:172.27.24.216:5060;transport=UDP SIP/2.0
+	INVITE sip:app-1pn6mtetzed8y@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-1pn6mtetzed8y SIP/2.0
+	INVITE sip:app-1pn6mtetzed8y@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-1pn6mtetzed8y SIP/2.0
+	INVITE sip:172.27.24.215:5060 SIP/2.0
+	INVITE sip:172.27.24.215:5060 SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-kg0afzdqywpx SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-kg0afzdqywpx SIP/2.0
+	INVITE sip:172.27.16.216:5060;transport=UDP SIP/2.0
+	INVITE sip:172.27.16.216:5060;transport=UDP SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-dpse2who9d9k SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-dpse2who9d9k SIP/2.0
+	INVITE sip:172.27.16.213:5060;transport=UDP SIP/2.0
+	INVITE sip:172.27.16.213:5060;transport=UDP SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-hgf3qkkvew1s SIP/2.0
+	INVITE sip:wlssuser@172.27.24.254:5060;transport=udp;wlsscid=3a26db2eb2b04659;sipappsessionid=app-hgf3qkkvew1s SIP/2.0
+	INVITE sip:172.27.24.213:5060;transport=UDP SIP/2.0
+	INVITE sip:172.27.24.213:5060;transport=UDP SIP/2.0
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:520101014040@alu.telmex.com;transport=UDP;user=phone SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.107:5060;user=phone;transport=UDP SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+	INVITE sip:040@172.29.98.65:5060 SIP/2.0
+^C200 packets captured
+200 packets received by filter
+0 packets dropped by kernel
+
+[root@ADPTMAYVMSLB1 share]# tcpdump -i any -s 0 port 5060 -v -c 1000 | grep -B3 "503 Serv"
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+1000 packets captured
+1000 packets received by filter
+0 packets dropped by kernel
+[root@ADPTMAYVMSLB1 share]# tcpdump -i any -s 0 port 5060 -v -c 1000 | grep -B3 "500 Inter"
+tcpdump: listening on any, link-type LINUX_SLL (Linux cooked), capture size 65535 bytes
+1000 packets captured
+1000 packets received by filter
+0 packets dropped by kernel
+[root@ADPTMAYVMSLB1 share]# 
